@@ -1,0 +1,679 @@
+{
+  "info": {
+    "_postman_id": "6f0e5424-1054-406c-a170-adc00af38167",
+    "name": "hassan_gp",
+    "description": "# ## DataBase Models\ndatabase structure with sqlite3\n\n#### CustomUser:\n- ID  `Integer`\n\n#### Doctor:\n- name = `models.CharField(max_length=100)`\n- age = `models.IntegerField()`\n- certification_image = `models.ImageField(upload_to=\"images\", blank=True)`\n- specialization = `models.TextField()`\n- country = `models.CharField(max_length=100)`\n- phone_number = `models.CharField(max_length=20)`\n- image = `models.ImageField(upload_to=\"images\")`\n- ID = `models.IntegerField(primary_key=True)`\n\n#### Patient:\n-     name = `models.CharField(max_length=100)`\n-     patientAddress = `models.CharField(max_length=1000)`\n-     age = `models.IntegerField()`\n-     notes = `models.TextField()`\n-     ID = `models.IntegerField(primary_key=True)`\n\n#### Employee:\n-     name = `models.CharField(max_length=100)`\n-     age = `models.IntegerField()`\n-     job = `models.CharField(max_length=200)`\n-     phone_number = `models.CharField(max_length=20)`\n-     salary =` models.CharField(max_length=50)`\n-     ID = `models.IntegerField(primary_key=True)`\n\n#### Reservation:\n-     P_name = `models.CharField(max_length=100)`\n-     P_age = `models.IntegerField()`\n-     gender = `models.CharField(max_length=10)`\n-     reservations_date = `models.IntegerField()`\n-     PID = `models.IntegerField()`\n-     DID = `models.IntegerField()`\n-     ID = `models.IntegerField(primary_key=True)`\n\nReservation ordering rule:\n\n\tclass Meta:\n\t\t\tordering = (\"-reservations_date\",)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create PatientAccount",
+      "_postman_id": "23da7691-5617-4afe-9627-fe8c1fd85525",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/createAccount/?name=testDoctor2&age=12&address=home&notes=NOTHING&email=test@gmail.com&pass=1234&type=pat",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "createAccount",
+            ""
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "testDoctor2"
+            },
+            {
+              "key": "age",
+              "value": "12"
+            },
+            {
+              "key": "address",
+              "value": "home"
+            },
+            {
+              "key": "notes",
+              "value": "NOTHING"
+            },
+            {
+              "key": "email",
+              "value": "test@gmail.com"
+            },
+            {
+              "key": "pass",
+              "value": "1234"
+            },
+            {
+              "key": "type",
+              "value": "pat"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create DoctorAccount",
+      "_postman_id": "5126b0d5-5119-4698-b0dc-61181b8c921d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/createAccount/?name=testDoctor2&age=12&cer=&image=&spc=nothing&con=iraq&phone=07802421471&email=test@gmail.com&pass=1234&type=doc",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "createAccount",
+            ""
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "testDoctor2"
+            },
+            {
+              "key": "age",
+              "value": "12"
+            },
+            {
+              "key": "cer",
+              "value": ""
+            },
+            {
+              "key": "image",
+              "value": ""
+            },
+            {
+              "key": "spc",
+              "value": "nothing"
+            },
+            {
+              "key": "con",
+              "value": "iraq"
+            },
+            {
+              "key": "phone",
+              "value": "07802421471"
+            },
+            {
+              "key": "email",
+              "value": "test@gmail.com"
+            },
+            {
+              "key": "pass",
+              "value": "1234"
+            },
+            {
+              "key": "type",
+              "value": "doc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create EmployeeAccount",
+      "_postman_id": "2a97c97b-7364-41f2-abf2-800205ac56b4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/createAccount/?name=testDoctor2&age=12&job=nothing&salary=0$&phone=07802421471&email=test@gmail.com&pass=1234&type=emp",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "createAccount",
+            ""
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "testDoctor2"
+            },
+            {
+              "key": "age",
+              "value": "12"
+            },
+            {
+              "key": "job",
+              "value": "nothing"
+            },
+            {
+              "key": "salary",
+              "value": "0$"
+            },
+            {
+              "key": "phone",
+              "value": "07802421471"
+            },
+            {
+              "key": "email",
+              "value": "test@gmail.com"
+            },
+            {
+              "key": "pass",
+              "value": "1234"
+            },
+            {
+              "key": "type",
+              "value": "emp",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create Reservation",
+      "_postman_id": "5230d1c1-1bfa-4819-8c01-16c026dc5081",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/createReservation/?pid=4&did=7&gender=male&date=1596542784000",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "createReservation",
+            ""
+          ],
+          "query": [
+            {
+              "key": "pid",
+              "value": "4"
+            },
+            {
+              "key": "did",
+              "value": "7"
+            },
+            {
+              "key": "gender",
+              "value": "male"
+            },
+            {
+              "key": "date",
+              "value": "1596542784000"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "updateDoctorAccount",
+      "_postman_id": "05344bab-3ff2-4734-a130-a3093113266d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/updateDoc/?id=7&name=testDoctorNew&age=12&cer=&image=&spc=nothing&con=iraq&phone=0780242147100&pass=126&type=doc",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "updateDoc",
+            ""
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "7"
+            },
+            {
+              "key": "name",
+              "value": "testDoctorNew"
+            },
+            {
+              "key": "age",
+              "value": "12"
+            },
+            {
+              "key": "cer",
+              "value": ""
+            },
+            {
+              "key": "image",
+              "value": ""
+            },
+            {
+              "key": "spc",
+              "value": "nothing"
+            },
+            {
+              "key": "con",
+              "value": "iraq"
+            },
+            {
+              "key": "phone",
+              "value": "0780242147100"
+            },
+            {
+              "key": "pass",
+              "value": "126"
+            },
+            {
+              "key": "type",
+              "value": "doc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "updatePatientAccount",
+      "_postman_id": "2e31bb88-5fe6-4fa0-9dfa-2354119b2757",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/updatePat/?id=7&name=testDoctorNew&age=12&address=testAdd&notes=testN&pass=126",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "updatePat",
+            ""
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "7"
+            },
+            {
+              "key": "name",
+              "value": "testDoctorNew"
+            },
+            {
+              "key": "age",
+              "value": "12"
+            },
+            {
+              "key": "address",
+              "value": "testAdd"
+            },
+            {
+              "key": "notes",
+              "value": "testN"
+            },
+            {
+              "key": "pass",
+              "value": "126"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "updateEmployeeAccount",
+      "_postman_id": "140413a8-b447-4688-8209-9f69fe303407",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/updateEmp/?id=7&name=testDoctorNew&age=12&job=testJob&phone=07800000000&salary=12$&pass=126",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "updateEmp",
+            ""
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "7"
+            },
+            {
+              "key": "name",
+              "value": "testDoctorNew"
+            },
+            {
+              "key": "age",
+              "value": "12"
+            },
+            {
+              "key": "job",
+              "value": "testJob"
+            },
+            {
+              "key": "phone",
+              "value": "07800000000"
+            },
+            {
+              "key": "salary",
+              "value": "12$",
+              "type": "text"
+            },
+            {
+              "key": "pass",
+              "value": "126"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update Reservation",
+      "_postman_id": "cc36656f-8485-4adc-9773-3d21095e9a70",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/updateRes/?id=1&pid=0&did=0&gender=unknown&date=2426542285000",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "updateRes",
+            ""
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            },
+            {
+              "key": "pid",
+              "value": "0",
+              "type": "text"
+            },
+            {
+              "key": "did",
+              "value": "0",
+              "type": "text"
+            },
+            {
+              "key": "gender",
+              "value": "unknown",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "2426542285000",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get Patients",
+      "_postman_id": "a58f84f2-60cf-4e44-b85e-a06b5ba33e3c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/getPatients/?lvl=0",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "getPatients",
+            ""
+          ],
+          "query": [
+            {
+              "key": "lvl",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get Employee",
+      "_postman_id": "97b6e11e-74d7-4a03-9a8c-efe1a26f6782",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/getEmployees/?lvl=0",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "getEmployees",
+            ""
+          ],
+          "query": [
+            {
+              "key": "lvl",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get doctors",
+      "_postman_id": "90e58280-4272-473c-9ef3-87cd601db277",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/getDoctors/?lvl=0",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "getDoctors",
+            ""
+          ],
+          "query": [
+            {
+              "key": "lvl",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get Reservation",
+      "_postman_id": "2ad19701-012a-49ed-aace-4bea106a77de",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/getReservations/?lvl=0",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "getReservations",
+            ""
+          ],
+          "query": [
+            {
+              "key": "lvl",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete User",
+      "_postman_id": "788bc29f-a714-463c-9192-25d64a511a86",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/delUser/?type=doc&id=1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "delUser",
+            ""
+          ],
+          "query": [
+            {
+              "key": "type",
+              "value": "doc"
+            },
+            {
+              "key": "id",
+              "value": "1",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete Reservation",
+      "_postman_id": "fb8bbcd7-e092-4d39-9c58-4ade45fb54d1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/deleteRes/?id=1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "deleteRes",
+            ""
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
